@@ -25,12 +25,7 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "manifest": "./web/manifest.json",
-      "bundler": "metro"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "voltpay-web"
-      }
+      "bundler": "webpack"
     }
   }
 }
