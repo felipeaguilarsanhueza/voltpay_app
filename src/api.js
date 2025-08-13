@@ -1,8 +1,15 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+// Permite configurar la URL base vía variable de entorno en tiempo de build
+// Para Expo web: usar EXPO_PUBLIC_API_BASE_URL; por defecto cae a localhost
+const baseURL =
+  process.env.EXPO_PUBLIC_API_BASE_URL ||
+  (typeof window !== 'undefined' && window.__API_BASE_URL__) ||
+  'http://localhost:8000';
+
 const api = axios.create({
-  baseURL: 'http://192.168.0.103:8000',  // <- tu IP local en la red
+  baseURL,
 });
 
 // Attach Authorization header with Bearer token from AsyncStorage
